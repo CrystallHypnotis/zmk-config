@@ -12,10 +12,18 @@
  * It has NO physical matrix — it uses a mock kscan.
  * The single event uses row/col outside the matrix (99, 99) so
  * no key is ever actually pressed.
+ *
+ * Event encoding (from kscan_mock.c):
+ *   bits [31:24] = delay (ms) before event
+ *   bits [23:16] = row
+ *   bits [15:8]  = column
+ *   bits [7:0]   = 1 for press, 0 for release
+ *
+ * Value: (delay << 24) | (row << 16) | (col << 8) | press
+ * Here: row=99, col=99, release → 0x00636300
  */
 
 #include <dt-bindings/zmk/matrix_transform.h>
-#include <dt-bindings/zmk/kscan_mock.h>
 
 / {
     chosen {
@@ -27,9 +35,7 @@
         compatible = "zmk,kscan-mock";
         rows = <4>;
         columns = <12>;
-        events = <
-            ZMK_MOCK_EVENT(99, 99, 0)
-        >;
+        events = <0x00636300>;
     };
 
     default_transform: keymap_transform_0 {
