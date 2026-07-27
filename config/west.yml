@@ -17,10 +17,9 @@ manifest:
       import: app/west.yml
 
     #Additional driver for PS/2 support
-     - name: kb_zmk_ps2_mouse_trackpoint_driver
+    - name: kb_zmk_ps2_mouse_trackpoint_driver
       remote: infused-kim
       revision: main
 
   self:
     path: config
-
