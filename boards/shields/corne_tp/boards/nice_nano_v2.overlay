@@ -1,5 +1,15 @@
 #include <dt-bindings/led/led.h>
 
+/*
+ * RGB underglow (WS2812)
+ *
+ * This is controlled by the HAS_RGB define in corne_tp.dtsi.
+ * When HAS_RGB is enabled, also uncomment CONFIG_ZMK_RGB_UNDERGLOW
+ * and CONFIG_WS2812_STRIP in config/corne_tp.conf.
+ */
+
+#ifdef HAS_RGB
+
 &pinctrl {
     spi3_default: spi3_default {
         group1 {
@@ -44,3 +54,5 @@
         zmk,underglow = &led_strip;
     };
 };
+
+#endif /* HAS_RGB */
