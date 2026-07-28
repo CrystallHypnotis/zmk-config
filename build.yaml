@@ -34,9 +34,9 @@ include:
 #   - board: nice_nano//zmk
 #     shield: settings_reset
 #------ Proj2 ------
-  - board: nice_nano//zmk
+  - board: nice_nano_v2
     shield: gbEnki_left
-  - board: nice_nano//zmk
+  - board: nice_nano_v2
     shield: gbEnki_right
-  - board: nice_nano//zmk
+  - board: nice_nano_v2
     shield: gbEnki_dongle
