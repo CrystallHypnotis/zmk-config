@@ -1,14 +1,17 @@
 #include <dt-bindings/led/led.h>
 
-/*
- * RGB underglow (WS2812)
- *
- * This is controlled by the HAS_RGB define in corne_tp.dtsi.
- * When HAS_RGB is enabled, also uncomment CONFIG_ZMK_RGB_UNDERGLOW
- * and CONFIG_WS2812_STRIP in config/corne_tp.conf.
- */
+// Firmware with alternative pins
+//
+// The #ifndef statement can safely be removed. It's only used in the example
+// zmk-config repo to create an additional firmware with alternative PIN
+// assignments, but since the alternative pins conflict with the underglow
+// pins, we disable it here.
+//
+// You can leave it or remove in your own zmk config. If you remove it, you
+// should also remove the entry in `zmk-config-example/build.yaml` that uses
+// it.
 
-#ifdef HAS_RGB
+#ifndef MOUSE_PS2_ALT_PINS
 
 &pinctrl {
     spi3_default: spi3_default {
@@ -55,4 +58,4 @@
     };
 };
 
-#endif /* HAS_RGB */
+#endif  // MOUSE_PS2_ALT_PINS
