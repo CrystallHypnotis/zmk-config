@@ -1,28 +1,3 @@
-/*
- * Copyright (c) 2020 The ZMK Contributors
- *
- * SPDX-License-Identifier: MIT
- *
- * gbEnki dongle overlay
- *
- * The dongle is connected via USB to the computer and acts as the
- * BLE central. The left and right keyboard halves connect to it
- * wirelessly.
- *
- * It has NO physical matrix — it uses a mock kscan.
- * The single event uses row/col outside the matrix (99, 99) so
- * no key is ever actually pressed.
- *
- * Event encoding (from kscan_mock.c):
- *   bits [31:24] = delay (ms) before event
- *   bits [23:16] = row
- *   bits [15:8]  = column
- *   bits [7:0]   = 1 for press, 0 for release
- *
- * Value: (delay << 24) | (row << 16) | (col << 8) | press
- * Here: row=99, col=99, release → 0x00636300
- */
-
 #include <dt-bindings/zmk/matrix_transform.h>
 
 / {
