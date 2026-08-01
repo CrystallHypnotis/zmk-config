@@ -9,7 +9,7 @@
 &default_transform {
     col-offset = <6>;
 };
-//Do keyboard need five_column_transform or not?
+
 &five_column_transform {
     col-offset = <6>;
 };

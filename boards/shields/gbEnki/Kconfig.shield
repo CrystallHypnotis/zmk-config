@@ -1,11 +1,11 @@
-# Copyright (c) 2020 The ZMK Contributors
+# Copyright (c) 2020 Pete Johanson
 # SPDX-License-Identifier: MIT
 
 config SHIELD_GBENKI_LEFT
-	def_bool $(shields_list_contains,gbEnki_left)
+    def_bool $(shields_list_contains,gbEnki_left)
 
 config SHIELD_GBENKI_RIGHT
-	def_bool $(shields_list_contains,gbEnki_right)
+    def_bool $(shields_list_contains,gbEnki_right)
 
 config SHIELD_GBENKI_DONGLE
-	def_bool $(shields_list_contains,gbEnki_dongle)
+    def_bool $(shields_list_contains,gbEnki_dongle)
