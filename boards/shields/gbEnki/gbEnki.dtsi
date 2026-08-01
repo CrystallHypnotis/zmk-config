@@ -46,7 +46,9 @@ RC(2,4) RC(2,3) RC(2,2) RC(2,1) RC(2,0)  RC(2,11) RC(2,10) RC(2,9) RC(2,8) RC(2,
     };
 
     kscan0: kscan {
+    //TODO do keyboard need label and wakeup-source?
         compatible = "zmk,kscan-gpio-matrix";
+        label = "KSCAN";
         wakeup-source;
 
         diode-direction = "col2row";
@@ -58,20 +60,24 @@ RC(2,4) RC(2,3) RC(2,2) RC(2,1) RC(2,0)  RC(2,11) RC(2,10) RC(2,9) RC(2,8) RC(2,
             ;
 
     };
-    //If you want to use them, enable `status_led.c` in CMakeLists.txt
-    leds {
-        compatible = "gpio-leds";
-        status_led: led_0 {
-            gpios = <&pro_micro 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
-        };
-        bat_led_1: led_b_1 {
-            gpios = <&pro_micro 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
-        };
-        bat_led_2: led_b_2 {
-            gpios = <&pro_micro 14 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
-        };
-        bat_led_3: led_b_3 {
-            gpios = <&pro_micro 16 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
-        };
-    };
+
+
+ //&pro_micro_i2c {
+ //    status = "okay";
+ //
+ //    oled: ssd1306@3c {
+ //        compatible = "solomon,ssd1306fb";
+ //        reg = <0x3c>;
+ //        width = <128>;
+ //        height = <32>;
+ //        segment-offset = <0>;
+ //        page-offset = <0>;
+ //        display-offset = <0>;
+ //        multiplex-ratio = <31>;
+ //        segment-remap;
+ //        com-invdir;
+ //        com-sequential;
+ //        inversion-on;
+ //        prechargep = <0x22>;
+ //    };
 };

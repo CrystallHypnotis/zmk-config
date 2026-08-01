@@ -1,32 +1,26 @@
 # Copyright (c) 2020 The ZMK Contributors
 # SPDX-License-Identifier: MIT
 
-if SHIELD_GBENKI_DONGLE
+if SHIELD_ENKI42_DONGLE
 
 config ZMK_KEYBOARD_NAME
-    default "gbEnki Dongle"
+	default "gbEnki Dongle"
 
 config ZMK_SPLIT_BLE_ROLE_CENTRAL
-    default y
+	default y
 
 config ZMK_USB
-    default y
+	default y
+
+endif //SHIELD_ENKI42_DONGLE
+
+if SHIELD_ENKI42_LEFT || SHIELD_ENKI42_RIGHT || SHIELD_ENKI42_DONGLE
 
 config ZMK_SPLIT
-    default y
+	default y
 
 config ZMK_BLE
-    default y
-
-endif
-
-if SHIELD_GBENKI_LEFT || SHIELD_GBENKI_RIGHT
-
-config ZMK_SPLIT
-    default y
-
-config ZMK_BLE
-    default y
+	default y
 
 if ZMK_DISPLAY
 
@@ -55,4 +49,4 @@ endchoice
 
 endif # LVGL
 
-endif
+endif //SHIELD_ENKI42_LEFT || SHIELD_ENKI42_RIGHT || SHIELD_ENKI42_DONGLE
